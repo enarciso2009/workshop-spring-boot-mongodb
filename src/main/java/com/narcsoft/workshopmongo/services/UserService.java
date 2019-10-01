@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.narcsoft.workshopmongo.domain.User;
+import com.narcsoft.workshopmongo.dto.UserDTO;
 import com.narcsoft.workshopmongo.repository.UserRepository;
 import com.narcsoft.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -27,4 +28,27 @@ public class UserService {
 
 	}
 
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+	}
+	
+	//public User update(User obj) {
+	//	User newObj = findById(obj.getId());
+	//	updateData(newObj, obj);
+	//	return repo.save(newObj);
+	//	}
+
+	//private void updateData(User newObj, User obj) {
+		// TODO Auto-generated method stub
+		
+//	}
+
+	//public User fromDTO(UserDTO objDto) {
+		// TODO Auto-generated method stub
+	//	return null;
+	//}
 }
